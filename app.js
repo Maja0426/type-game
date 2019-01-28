@@ -1,12 +1,6 @@
 window.addEventListener('load', gameInit);
 
-const levels = {
-  easy: 5,
-  medium: 3,
-  hard: 2
-}
-
-const currentLevel = levels.easy;
+let currentLevel = 5;
 
 // Globals
 let time = currentLevel;
@@ -20,6 +14,9 @@ const message = document.querySelector('#message');
 const timeDisplay = document.querySelector('#time');
 const scoreDisplay = document.querySelector('#score');
 const seconds = document.querySelector('#seconds');
+const easy = document.querySelector('#easy');
+const medium = document.querySelector('#medium');
+const hard = document.querySelector('#hard');
 
 const words = ['ablak', 'kalapács', 'kefe', 'autó', 'pók', 'keret', 'labda', 'ecset', 'telefon', 'korcsolya', 'szánkó', 'labda', 'pulóver', 'kabát', 'szemüveg', 'vasaló', 'elem', 'bor', 'furulya', 'villa', 'kanál', 'lakókocsi', 'motor', 'szánkó', 'felhő', 'tavasz', 'kutya', 'macska', 'madár', 'kelkáposzta', 'téliszalámi', 'piros', 'fehér', 'zöld', 'telefon', 'asztal', 'programozás', 'emancipáció', 'keresztény', 'boglya', 'gereblye', 'kertkapu', 'füstgyertya', 'technikus', 'osztályvezető', 'határozat', 'tanusítvány', 'lakberendező', 'jegyzőkönyv', 'nyaralás', 'jégkrém', 'önindító', 'berendezés', 'csomagolás', 'vakablak', 'túlóra', 'fizetésemelés'];
 
@@ -41,7 +38,7 @@ function gameInit() {
 function startMatch() {
   if (matchWords()) {
     isPlaying = true;
-    time = currentLevel + 1;
+    time = currentLevel;
     showWord(words);
     wordInput.value = '';
     score++;
@@ -91,7 +88,38 @@ function countdown() {
 // Check Game Status
 function checkStatus() {
   if(!isPlaying && time === 0) {
-    message.textContent = 'Lassú voltál, vége!!';
+    message.textContent = 'Kifutottál az időből, vége!!';
     score = -1;
+
+    // Chose difficulty 
+    (function(){
+      // Easy
+      easy.addEventListener('click', function () {
+        currentLevel = 5;
+        easy.classList.add('active');
+        medium.classList.remove('active');
+        hard.classList.remove('active');
+      })
+
+      // Medium
+      medium.addEventListener('click', function () {
+        currentLevel = 3;
+        easy.classList.remove('active');
+        medium.classList.add('active');
+        hard.classList.remove('active');
+      })
+
+      // Hard
+      hard.addEventListener('click', function () {
+        currentLevel = 2;
+        easy.classList.remove('active');
+        medium.classList.remove('active');
+        hard.classList.add('active');
+      })
+    })()
+    
   }
+  seconds.textContent = currentLevel;
+  timeDisplay.textContent = time;
 }
+
