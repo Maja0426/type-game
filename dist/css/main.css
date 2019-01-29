@@ -1,0 +1,125 @@
+.menu-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  cursor: pointer;
+  z-index: 4;
+  transition: all .3s ease-out; }
+  .menu-btn .btn-line {
+    width: 25px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #fff;
+    transition: all .3s ease-out; }
+  .menu-btn.close {
+    transform: rotate(180deg); }
+    .menu-btn.close .btn-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.close .btn-line:nth-child(2) {
+      opacity: 0; }
+    .menu-btn.close .btn-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px); }
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  opacity: 1;
+  visibility: hidden; }
+  .menu.show {
+    visibility: visible; }
+  .menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    min-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    opacity: .8;
+    list-style: none;
+    transform: translate3d(100%, 0, 0);
+    transition: all .3s ease-out; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+    .menu-nav .menu-footer {
+      position: absolute;
+      bottom: 10px;
+      color: #ffc107; }
+  .menu .nav-item.current > a {
+    color: #ffc107; }
+  .menu .nav-item a {
+    color: #fff;
+    font-size: 3rem; }
+    .menu .nav-item a:hover {
+      color: #ffc107; }
+
+.active {
+  background: #ffc107 !important;
+  color: #000 !important; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 15px 0 0 15px; }
+
+.b-group {
+  padding: 10px; }
+
+.progress {
+  height: 30px; }
+
+.gifanim {
+  width: 800px; }
+
+@media screen and (max-width: 500px) {
+  .b-group {
+    margin-top: 30%; }
+    .b-group h3 {
+      display: none; }
+  .help-content {
+    margin-top: 30%; }
+  .display-2 {
+    font-size: 2.5rem !important; }
+  .gifanim {
+    width: 80%; }
+  .progress {
+    height: 10px; } }
+
+@media screen and (max-width: 767px) {
+  header h2 {
+    font-size: 1.5rem; }
+  .b-group {
+    margin-top: 25%; }
+    .b-group h3 {
+      display: none; }
+  .help-content {
+    margin-top: 25%;
+    margin-bottom: 10%; }
+  .display-2 {
+    font-size: 3rem !important; }
+  .gifanim {
+    width: 95%; }
+  .progress {
+    height: 10px; } }
+
+@media screen and (min-width: 768px) and (max-width: 1170px) {
+  .b-group {
+    margin-top: 20%; }
+  .help-content {
+    margin-top: 20%; }
+  .gifanim {
+    width: 95%; } }
+
+@media screen and (min-width: 1171px) {
+  .b-group {
+    margin-top: 25%; }
+  .help-content {
+    margin-top: 15vh;
+    margin-bottom: 10%; } }

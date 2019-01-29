@@ -1,0 +1,78 @@
+@include mediaSm {
+  .b-group {
+    margin-top: 30%;
+
+    h3 {
+      display: none;
+    }
+  }
+  .help-content {
+    margin-top: 30%;
+  }
+
+  .display-2 {
+    font-size: 2.5rem !important;
+  }
+
+  .gifanim {
+    width: 80%;
+  }
+
+  .progress {
+    height: 10px;
+  }
+}
+
+@include mediaMd {
+  header h2 {
+    font-size: 1.5rem;
+  }
+
+  .b-group {
+    margin-top: 25%;
+
+    h3 {
+      display: none;
+    }
+  }
+  .help-content {
+    margin-top: 25%;
+    margin-bottom: 10%;
+  }
+
+  .display-2 {
+    font-size: 3rem !important;
+  }
+
+  .gifanim {
+    width: 95%;
+  }
+
+  .progress {
+    height: 10px;
+  }
+}
+
+@include mediaLg {
+  .b-group {
+    margin-top: 20%;
+  }
+  .help-content {
+    margin-top: 20%;
+  }
+
+  .gifanim {
+    width: 95%;
+  }
+
+}
+
+@include mediaXl {
+  .b-group {
+    margin-top: 25%;
+  }
+  .help-content {
+    margin-top: 15vh;
+    margin-bottom: 10%;
+  }
+}

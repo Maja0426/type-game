@@ -1,0 +1,28 @@
+@import 'config';
+@import 'menu';
+
+.active {
+  background: $menu-bground !important;
+  color: $menu-color !important;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 15px 0 0 15px;
+}
+
+.b-group {
+padding: 10px;
+}
+
+.progress {
+  height: 30px;
+}
+
+.gifanim {
+  width: 800px;
+}
+
+@import 'mobile';

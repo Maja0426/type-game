@@ -1,0 +1,23 @@
+{
+  "name": "speed_typing_game",
+  "version": "1.0.0",
+  "description": "A small fun game, typing the displaying words",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maja0426/type-game.git"
+  },
+  "author": "Tamas Majoros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Maja0426/type-game/issues"
+  },
+  "homepage": "https://github.com/Maja0426/type-game#readme"
+}

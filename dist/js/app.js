@@ -1,4 +1,4 @@
-window.addEventListener('load', gameInit);
+// window.addEventListener('load', gameInit);
 
 let currentLevel = 5;
 
@@ -17,12 +17,15 @@ const seconds = document.querySelector('#seconds');
 const easy = document.querySelector('#easy');
 const medium = document.querySelector('#medium');
 const hard = document.querySelector('#hard');
+const progressBar = document.querySelector('.progress-bar');
 
 const words = ['ablak', 'kalapács', 'kefe', 'autó', 'pók', 'keret', 'labda', 'ecset', 'telefon', 'korcsolya', 'szánkó', 'labda', 'pulóver', 'kabát', 'szemüveg', 'vasaló', 'elem', 'bor', 'furulya', 'villa', 'kanál', 'lakókocsi', 'motor', 'szánkó', 'felhő', 'tavasz', 'kutya', 'macska', 'madár', 'kelkáposzta', 'téliszalámi', 'piros', 'fehér', 'zöld', 'telefon', 'asztal', 'programozás', 'emancipáció', 'keresztény', 'boglya', 'gereblye', 'kertkapu', 'füstgyertya', 'technikus', 'osztályvezető', 'határozat', 'tanusítvány', 'lakberendező', 'jegyzőkönyv', 'nyaralás', 'jégkrém', 'önindító', 'berendezés', 'csomagolás', 'vakablak', 'túlóra', 'fizetésemelés'];
 
+gameInit();
 
 // Initialize Game
 function gameInit() {
+  progressBar.style.width = '100%';
   seconds.textContent = time;
   // Load word from array
   showWord(words);
@@ -41,7 +44,7 @@ function startMatch() {
     time = currentLevel;
     showWord(words);
     wordInput.value = '';
-    score++;
+    score += plusScore;
   }
   
   // If score is -1, display 0
@@ -54,8 +57,16 @@ function startMatch() {
 
 // Match currentWord to wordInput
 function matchWords() {
-  if (wordInput.value === currentWord.textContent) {
+  if (wordInput.value.toUpperCase() === currentWord.textContent.toUpperCase()) {
     message.textContent = 'Helyes!';
+    plusScore = currentWord.textContent.length;
+    // if (currentWord.textContent.length > 5 && currentWord.textContent.length <= 9) {
+    //   plusScore = 2;
+    // } else if (currentWord.textContent.length > 10) {
+    //   plusScore = 3;
+    // } else {
+    //   plusScore = 1;
+    // }
     return true;
   } else {
     message.textContent = 'Írd utánam!';
@@ -82,14 +93,15 @@ function countdown() {
     isPlaying = false;
   }
   // Show time
-  timeDisplay.textContent = time;
+  progress();
 }
 
 // Check Game Status
 function checkStatus() {
   if(!isPlaying && time === 0) {
-    message.textContent = 'Kifutottál az időből, vége!!';
+    message.textContent = 'GAME OVER!';
     score = -1;
+    progressBar.style.width = '100%';
 
     // Chose difficulty 
     (function(){
@@ -120,6 +132,11 @@ function checkStatus() {
     
   }
   seconds.textContent = currentLevel;
-  timeDisplay.textContent = time;
 }
+
+// Decrease progress bar from 100%
+function progress() {
+  progressBar.style.width = time * 100/currentLevel + '%';
+}
+
 
