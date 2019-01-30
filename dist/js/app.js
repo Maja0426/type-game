@@ -1,4 +1,4 @@
-// window.addEventListener('load', gameInit);
+window.addEventListener('load', gameInit);
 
 let currentLevel = 5;
 
@@ -21,12 +21,10 @@ const progressBar = document.querySelector('.progress-bar');
 
 const words = ['ablak', 'kalapács', 'kefe', 'autó', 'pók', 'keret', 'labda', 'ecset', 'telefon', 'korcsolya', 'szánkó', 'labda', 'pulóver', 'kabát', 'szemüveg', 'vasaló', 'elem', 'bor', 'furulya', 'villa', 'kanál', 'lakókocsi', 'motor', 'szánkó', 'felhő', 'tavasz', 'kutya', 'macska', 'madár', 'kelkáposzta', 'téliszalámi', 'piros', 'fehér', 'zöld', 'telefon', 'asztal', 'programozás', 'emancipáció', 'keresztény', 'boglya', 'gereblye', 'kertkapu', 'füstgyertya', 'technikus', 'osztályvezető', 'határozat', 'tanusítvány', 'lakberendező', 'jegyzőkönyv', 'nyaralás', 'jégkrém', 'önindító', 'berendezés', 'csomagolás', 'vakablak', 'túlóra', 'fizetésemelés'];
 
-gameInit();
-
 // Initialize Game
 function gameInit() {
-  progressBar.style.width = '100%';
   seconds.textContent = time;
+  timeDisplay.textContent = currentLevel;
   // Load word from array
   showWord(words);
   // Start matching on word input
@@ -34,14 +32,14 @@ function gameInit() {
   // Call countdown every second
   setInterval(countdown, 1000);
   // Check game status
-  setInterval(checkStatus, 50);
+  setInterval(checkStatus, 10);
 }
 
 // Start match
 function startMatch() {
   if (matchWords()) {
     isPlaying = true;
-    time = currentLevel;
+    time = currentLevel +1;
     showWord(words);
     wordInput.value = '';
     score += plusScore;
@@ -60,13 +58,6 @@ function matchWords() {
   if (wordInput.value.toUpperCase() === currentWord.textContent.toUpperCase()) {
     message.textContent = 'Helyes!';
     plusScore = currentWord.textContent.length;
-    // if (currentWord.textContent.length > 5 && currentWord.textContent.length <= 9) {
-    //   plusScore = 2;
-    // } else if (currentWord.textContent.length > 10) {
-    //   plusScore = 3;
-    // } else {
-    //   plusScore = 1;
-    // }
     return true;
   } else {
     message.textContent = 'Írd utánam!';
@@ -93,7 +84,7 @@ function countdown() {
     isPlaying = false;
   }
   // Show time
-  progress();
+  timeDisplay.textContent = time;
 }
 
 // Check Game Status
@@ -101,10 +92,9 @@ function checkStatus() {
   if(!isPlaying && time === 0) {
     message.textContent = 'GAME OVER!';
     score = -1;
-    progressBar.style.width = '100%';
-
+    progressBar.classList.add('bg-success');
+    progressBar.classList.remove('bg-danger');
     // Chose difficulty 
-    (function(){
       // Easy
       easy.addEventListener('click', function () {
         currentLevel = 5;
@@ -128,15 +118,24 @@ function checkStatus() {
         medium.classList.remove('active');
         hard.classList.add('active');
       })
-    })()
-    
   }
+  progress();
   seconds.textContent = currentLevel;
 }
 
-// Decrease progress bar from 100%
+// increase progress bar from 0% to words length, 100%
 function progress() {
-  progressBar.style.width = time * 100/currentLevel + '%';
+  var wordLength = currentWord.textContent.length;
+  var step = 100 / wordLength;
+  var ch = wordInput.value.length;
+  progressBar.style.width = step*wordInput.value.length + '%';
+  if (wordInput.value.substring(0, ch) !== currentWord.textContent.substring(0, ch)) {
+    progressBar.classList.remove('bg-success');
+    progressBar.classList.add('bg-danger');
+  } else {
+    progressBar.classList.add('bg-success');
+    progressBar.classList.remove('bg-danger');
+  }
 }
 
 

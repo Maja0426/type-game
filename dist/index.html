@@ -36,16 +36,14 @@
           <a href="help.html" class="nav-link">A játékról</a>
         </li>
         <li class="nav-item">
-          <a href="something.html" class="nav-link">Valami</a>
-        </li>
-        <li class="nav-item">
           <a href="about.html" class="nav-link">Rólam</a>
         </li>
         <div class="menu-footer text-white">
-        <p>Copiryght &copy; <a href="https://majaportfolio.netlify.com/about.html" target="_blank" class="text-warning">Majoros Tamás</a></p>
-      </div>
+          <p>Copiryght &copy; <a href="https://majaportfolio.netlify.com/about.html" target="_blank" class="text-warning">Majoros
+              Tamás</a></p>
+        </div>
       </ul>
-      
+
     </nav>
   </header>
 
@@ -54,7 +52,7 @@
     <!-- Word & Input -->
     <div class="row">
       <div class="col-xl-6 mx-auto">
-        <div class="b-group mb-3">
+        <div class="b-group">
           <h3 class="">Nehézségi szint:</h3>
           <button id="easy" class="btn btn btn-dark active">Easy</button>
           <button id="medium" class="btn btn btn-dark">Medium</button>
@@ -62,13 +60,20 @@
         </div>
         <p class="lead">Írd be a lentebb látható szót <span class="text-warning" id="seconds">5</span> másodpercen
           belül:</p>
-        <h2 class="display-2 mb-2 text-warning word" id="current-word">hello</h2>
-        <div class="progress col-md-6 mx-auto p-0 mt-2 mb-4">
-          <div class="progress-bar progress-bar-striped bg-warning text-dark"></div>
+        <div class="row counters">
+          <div class="col-6">
+            <h3 class="display-4 "><i class="far fa-clock"></i> <span id="time" class="font-weight-bold text-warning"></span></h3>
+          </div>
+          <div class="col-6">
+            <h3 class="display-4"><i class="far fa-star"></i> <span id="score" class="font-weight-bold text-warning">0</span>
+            </h3>
+          </div>
         </div>
-        <input type="text" class="form-control form-control-lg" placeholder="Ide írj..." id="word-input" autofocus>
-
-          <h3 class="display-1 mt-2"><span id="score" class="font-weight-bold text-warning">0</span> </h3>
+        <h2 class="display-2 mb-2 text-warning word" id="current-word"></h2>
+        <div class="progress col-md-6 mx-auto p-0 mt-2 mb-4">
+          <div class="progress-bar progress-bar-striped bg-success text-dark"></div>
+        </div>
+        <input type="text" class="form-control form-control" placeholder="Ide írj..." id="word-input" autofocus>
 
       </div>
     </div>

@@ -21,6 +21,10 @@
   .progress {
     height: 10px;
   }
+
+  .counters h3 {
+    font-size: 1.5rem;
+  }
 }
 
 @include mediaMd {
@@ -58,7 +62,12 @@
   .progress {
     height: 10px;
   }
+
+  .counters h3 {
+    font-size: 2rem;
+  }
 }
+
 
 @include mediaLg {
   .b-group {
@@ -76,7 +85,7 @@
 
 @include mediaXl {
   .b-group {
-    margin-top: 25%;
+    margin-top: 20%;
   }
   .help-content {
     margin-top: 15vh;

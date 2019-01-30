@@ -76,7 +76,7 @@ header {
   padding: 10px; }
 
 .progress {
-  height: 30px; }
+  height: 10px; }
 
 .gifanim {
   width: 800px; }
@@ -108,7 +108,9 @@ header {
   .gifanim {
     width: 80%; }
   .progress {
-    height: 10px; } }
+    height: 10px; }
+  .counters h3 {
+    font-size: 1.5rem; } }
 
 @media screen and (max-width: 767px) {
   .menu {
@@ -128,7 +130,9 @@ header {
   .gifanim {
     width: 95%; }
   .progress {
-    height: 10px; } }
+    height: 10px; }
+  .counters h3 {
+    font-size: 2rem; } }
 
 @media screen and (min-width: 768px) and (max-width: 1170px) {
   .b-group {
@@ -140,6 +144,6 @@ header {
 
 @media screen and (min-width: 1171px) {
   .b-group {
-    margin-top: 25%; }
+    margin-top: 20%; }
   .help-content {
     margin-top: 15vh; } }
