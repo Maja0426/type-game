@@ -24,6 +24,14 @@
 }
 
 @include mediaMd {
+
+  .menu {
+    width: 100%;
+    .nav-item a {
+      font-size: 2rem;
+    }
+  }
+
   header h2 {
     font-size: 1.5rem;
   }
@@ -37,7 +45,6 @@
   }
   .help-content {
     margin-top: 25%;
-    margin-bottom: 10%;
   }
 
   .display-2 {
@@ -73,6 +80,6 @@
   }
   .help-content {
     margin-top: 15vh;
-    margin-bottom: 10%;
   }
+
 }

@@ -1,6 +1,10 @@
 @import 'config';
 @import 'menu';
 
+body {
+  margin-bottom: 10%;
+}
+
 .active {
   background: $menu-bground !important;
   color: $menu-color !important;
@@ -24,5 +28,28 @@ padding: 10px;
 .gifanim {
   width: 800px;
 }
+
+  .about {
+
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 10%;
+    }
+
+    img {
+      border-radius: 50%;
+      border: 5px solid $menu-bground;
+    }
+
+    .icons a {
+      color: #fff !important;
+      padding: 10px;
+    }
+  }
+
+  .avatar, .text {
+    margin-top: 15%;
+  }
+
 
 @import 'mobile';

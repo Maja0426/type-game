@@ -59,6 +59,9 @@
     .menu .nav-item a:hover {
       color: #ffc107; }
 
+body {
+  margin-bottom: 10%; }
+
 .active {
   background: #ffc107 !important;
   color: #000 !important; }
@@ -78,6 +81,21 @@ header {
 .gifanim {
   width: 800px; }
 
+.about h1 {
+  font-size: 5rem;
+  margin-bottom: 10%; }
+
+.about img {
+  border-radius: 50%;
+  border: 5px solid #ffc107; }
+
+.about .icons a {
+  color: #fff !important;
+  padding: 10px; }
+
+.avatar, .text {
+  margin-top: 15%; }
+
 @media screen and (max-width: 500px) {
   .b-group {
     margin-top: 30%; }
@@ -93,6 +111,10 @@ header {
     height: 10px; } }
 
 @media screen and (max-width: 767px) {
+  .menu {
+    width: 100%; }
+    .menu .nav-item a {
+      font-size: 2rem; }
   header h2 {
     font-size: 1.5rem; }
   .b-group {
@@ -100,8 +122,7 @@ header {
     .b-group h3 {
       display: none; }
   .help-content {
-    margin-top: 25%;
-    margin-bottom: 10%; }
+    margin-top: 25%; }
   .display-2 {
     font-size: 3rem !important; }
   .gifanim {
@@ -121,5 +142,4 @@ header {
   .b-group {
     margin-top: 25%; }
   .help-content {
-    margin-top: 15vh;
-    margin-bottom: 10%; } }
+    margin-top: 15vh; } }
