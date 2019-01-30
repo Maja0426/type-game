@@ -22,34 +22,34 @@ const hard = document.querySelector('#hard');
 const progressBar = document.querySelector('.progress-bar');
 const bd = document.querySelector('.bd');
 const highScr = document.querySelector('.lastscr');
-const nameInput = document.querySelector('#name');
+// const nameInput = document.querySelector('#name');
 
 //let yourName = nameInput.value;
 
 
 const words = ['ablak', 'kalapács', 'kefe', 'autó', 'pók', 'keret', 'labda', 'ecset', 'telefon', 'korcsolya', 'szánkó', 'labda', 'pulóver', 'kabát', 'szemüveg', 'vasaló', 'elem', 'bor', 'furulya', 'villa', 'kanál', 'lakókocsi', 'motor', 'szánkó', 'felhő', 'tavasz', 'kutya', 'macska', 'madár', 'kelkáposzta', 'téliszalámi', 'piros', 'fehér', 'zöld', 'telefon', 'asztal', 'programozás', 'emancipáció', 'keresztény', 'boglya', 'gereblye', 'kertkapu', 'füstgyertya', 'technikus', 'osztályvezető', 'határozat', 'tanusítvány', 'lakberendező', 'jegyzőkönyv', 'nyaralás', 'jégkrém', 'önindító', 'berendezés', 'csomagolás', 'vakablak', 'túlóra', 'fizetésemelés'];
 
-function save() {
-  if (highScore > savedScore) {
-  let save = {
-    name: nameInput.value,
-    score: highScore
-  }
-  localStorage.setItem('highscore', JSON.stringify(save));
-}
-}
+// function save() {
+//   if (highScore > savedScore) {
+//   let save = {
+//     name: nameInput.value,
+//     score: highScore
+//   }
+//   localStorage.setItem('highscore', JSON.stringify(save));
+// }
+// }
 
-function load() {
-  let saveGame = JSON.parse(localStorage.getItem('highscore'));
-    if (saveGame !== null && saveGame !== undefined) {
-      savedScore = saveGame.score;
-      document.querySelector('.bests').textContent = saveGame.name + ': ' + saveGame.score;
-    }
-}
+// function load() {
+//   let saveGame = JSON.parse(localStorage.getItem('highscore'));
+//     if (saveGame !== null && saveGame !== undefined) {
+//       savedScore = saveGame.score;
+//       document.querySelector('.bests').textContent = saveGame.name + ': ' + saveGame.score;
+//     }
+// }
 
 // Initialize Game
 function gameInit() {
-  load();
+  // load();
   seconds.textContent = currentLevel;
   timeDisplay.textContent = time;
   // Load word from array
@@ -109,8 +109,8 @@ function countdown() {
     time--;
   } else if (time === 0) {
     // Game is Over
-      save();
-      load();
+      // save();
+      // load();
     if (highScore >= lastScore) {
       lastScore = highScore;
       highScr.textContent = lastScore;
