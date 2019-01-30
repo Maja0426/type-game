@@ -9,11 +9,12 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   <title>Speed Typing Game</title>
 </head>
 
-<body class="bg-dark text-white">
+<body class="bg-dark text-white bd">
 
   <header class="bg-secondary text-center">
     <div class="row mx-auto">
@@ -39,7 +40,7 @@
           <a href="about.html" class="nav-link">Rólam</a>
         </li>
         <div class="menu-footer text-white">
-          <p>Copiryght &copy; <a href="https://majaportfolio.netlify.com/about.html" target="_blank" class="text-warning">Majoros
+          <p>Copiryght &copy; <a href="https://majaportfolio.netlify.com/" target="_blank" class="text-warning">Majoros
               Tamás</a></p>
         </div>
       </ul>
@@ -58,23 +59,25 @@
           <button id="medium" class="btn btn btn-dark">Medium</button>
           <button id="hard" class="btn btn btn-dark">Hard</button>
         </div>
-        <p class="lead">Írd be a lentebb látható szót <span class="text-warning" id="seconds">5</span> másodpercen
+        <p class="lead command">Írd be a lentebb látható szót <span class="text-warning" id="seconds"></span> másodpercen
           belül:</p>
-        <div class="row counters">
+        <h2 class="display-2 mb-2 text-warning word" id="current-word"></h2>
+        <div class="progress col-md-6 mx-auto p-0 mt-3 mb-4">
+          <div class="progress-bar bg-success text-dark"></div>
+        </div>
+        <div class="col-lg-6 col-12 mx-auto">
+          <input type="text" class="form-control" placeholder="Ide írj..." id="word-input" autofocus>
+        </div>
+        <div class="row counters mt-3">
           <div class="col-6">
-            <h3 class="display-4 "><i class="far fa-clock"></i> <span id="time" class="font-weight-bold text-warning"></span></h3>
+            <h3 class="display-4 float-right"><i class="far fa-clock"></i> <span id="time" class="font-weight-bold text-warning"></span></h3>
           </div>
           <div class="col-6">
-            <h3 class="display-4"><i class="far fa-star"></i> <span id="score" class="font-weight-bold text-warning">0</span>
+            <h3 class="display-4 float-left"><i class="far fa-star"></i> <span id="score" class="font-weight-bold text-warning">0</span>
             </h3>
           </div>
         </div>
-        <h2 class="display-2 mb-2 text-warning word" id="current-word"></h2>
-        <div class="progress col-md-6 mx-auto p-0 mt-2 mb-4">
-          <div class="progress-bar progress-bar-striped bg-success text-dark"></div>
-        </div>
-        <input type="text" class="form-control form-control" placeholder="Ide írj..." id="word-input" autofocus>
-
+        <h3>Legjobb pontszám: <span class="lastscr"></span></h3>
       </div>
     </div>
   </div>

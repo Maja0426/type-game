@@ -6,6 +6,8 @@ let currentLevel = 5;
 let time = currentLevel;
 let score = 0;
 let isPlaying;
+let highScore = 0;
+let lastScore = 0;
 
 // DOM elements
 const wordInput = document.querySelector('#word-input');
@@ -18,13 +20,16 @@ const easy = document.querySelector('#easy');
 const medium = document.querySelector('#medium');
 const hard = document.querySelector('#hard');
 const progressBar = document.querySelector('.progress-bar');
+const bd = document.querySelector('.bd');
+const highScr = document.querySelector('.lastscr');
+
 
 const words = ['ablak', 'kalapács', 'kefe', 'autó', 'pók', 'keret', 'labda', 'ecset', 'telefon', 'korcsolya', 'szánkó', 'labda', 'pulóver', 'kabát', 'szemüveg', 'vasaló', 'elem', 'bor', 'furulya', 'villa', 'kanál', 'lakókocsi', 'motor', 'szánkó', 'felhő', 'tavasz', 'kutya', 'macska', 'madár', 'kelkáposzta', 'téliszalámi', 'piros', 'fehér', 'zöld', 'telefon', 'asztal', 'programozás', 'emancipáció', 'keresztény', 'boglya', 'gereblye', 'kertkapu', 'füstgyertya', 'technikus', 'osztályvezető', 'határozat', 'tanusítvány', 'lakberendező', 'jegyzőkönyv', 'nyaralás', 'jégkrém', 'önindító', 'berendezés', 'csomagolás', 'vakablak', 'túlóra', 'fizetésemelés'];
 
 // Initialize Game
 function gameInit() {
-  seconds.textContent = time;
-  timeDisplay.textContent = currentLevel;
+  seconds.textContent = currentLevel;
+  timeDisplay.textContent = time;
   // Load word from array
   showWord(words);
   // Start matching on word input
@@ -43,6 +48,7 @@ function startMatch() {
     showWord(words);
     wordInput.value = '';
     score += plusScore;
+    highScore = score;
   }
   
   // If score is -1, display 0
@@ -75,12 +81,18 @@ function showWord(words) {
 
 // Countdown timer
 function countdown() {
-  // MAke sure time is not run out
+  // Make sure time is not run out
   if (time > 0) {
     // Decrement
     time--;
   } else if (time === 0) {
     // Game is Over
+    if (highScore >= lastScore) {
+      lastScore = highScore;
+      highScr.textContent = lastScore;
+    } else {
+      highScr.textContent = lastScore;
+    }
     isPlaying = false;
   }
   // Show time
@@ -90,10 +102,8 @@ function countdown() {
 // Check Game Status
 function checkStatus() {
   if(!isPlaying && time === 0) {
-    message.textContent = 'GAME OVER!';
+    message.textContent = 'GAME OVER!!!';
     score = -1;
-    progressBar.classList.add('bg-success');
-    progressBar.classList.remove('bg-danger');
     // Chose difficulty 
       // Easy
       easy.addEventListener('click', function () {
@@ -129,12 +139,13 @@ function progress() {
   var step = 100 / wordLength;
   var ch = wordInput.value.length;
   progressBar.style.width = step*wordInput.value.length + '%';
-  if (wordInput.value.substring(0, ch) !== currentWord.textContent.substring(0, ch)) {
-    progressBar.classList.remove('bg-success');
-    progressBar.classList.add('bg-danger');
+  progressBar.classList.add('bg-warning');
+  if (wordInput.value.substring(0, ch).toUpperCase() !== currentWord.textContent.substring(0, ch).toUpperCase()) {
+    bd.classList.add('bg-danger');
+    bd.classList.remove('bg-dark');
   } else {
-    progressBar.classList.add('bg-success');
-    progressBar.classList.remove('bg-danger');
+    bd.classList.remove('bg-danger');
+    bd.classList.add('bg-dark');
   }
 }
 

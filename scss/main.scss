@@ -2,7 +2,9 @@
 @import 'menu';
 
 body {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+   font-family: 'Arvo',
+   serif;
 }
 
 .active {
@@ -19,6 +21,7 @@ header {
 
 .b-group {
 padding: 10px;
+margin-bottom: 10px;
 }
 
 .progress {

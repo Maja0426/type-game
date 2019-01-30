@@ -66,6 +66,10 @@
   .counters h3 {
     font-size: 2rem;
   }
+
+  .command {
+    font-size: 1rem;
+  }
 }
 
 
@@ -85,7 +89,7 @@
 
 @include mediaXl {
   .b-group {
-    margin-top: 20%;
+    margin-top: 15%;
   }
   .help-content {
     margin-top: 15vh;
